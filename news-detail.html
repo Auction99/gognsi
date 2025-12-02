@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新闻详情 - 青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.8;
+      color: #333;
+      background: #fff;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .nav {
+      background: #1a365d;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 24px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .nav a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav li:hover > a {
+      color: #fff;
+    }
+
+    /* 下拉菜单 - 关键修复：默认隐藏 + 悬停显示 */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      display: none; /* 默认隐藏 */
+      z-index: 1001;
+      overflow: hidden; /* 防止内容溢出 */
+    }
+    .nav li:hover .dropdown {
+      display: block; /* 悬停时显示 */
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #333 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .dropdown a:hover {
+      background: #f0f5ff;
+    }
+
+    /* 页面标题 */
+    .page-header {
+      text-align: center;
+      margin: 50px 0 30px;
+    }
+    .page-header h1 {
+      font-size: 26px;
+      color: #1a365d;
+      line-height: 1.4;
+    }
+    .page-header .date {
+      color: #718096;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* 新闻正文 */
+    .news-content {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+    .news-content p {
+      margin-bottom: 20px;
+    }
+    .news-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 20px 0;
+      display: block;
+    }
+
+    /* 返回按钮 */
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 20px;
+      background: #1a365d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .back-link:hover {
+      background: #2c5282;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .nav { height: 50px; }
+      .logo { font-size: 16px; padding: 0 15px; }
+      .nav a { font-size: 14px; }
+      .page-header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="logo">青岛金方圆机械有限公司</div>
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="products.html#p1">单板刨切机</a>
+          <a href="products.html#p2">卧式刨切机</a>
+          <a href="products.html#p3">薄木剪切机</a>
+          <a href="products.html#p4">热压机</a>
+        </div>
+      </li>
+      <li><a href="news.html">新闻动态</a></li>
+      <li><a href="honors.html">资质荣誉</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- 新闻详情内容 -->
+  <div class="container">
+    <div class="page-header">
+      <h1 id="news-title">新闻标题</h1>
+      <div class="date" id="news-date">2025-01-01</div>
+    </div>
+
+    <div class="news-content" id="news-content">
+      <!-- 动态填充 -->
+    </div>
+
+    <a href="news.html" class="back-link">← 返回新闻列表</a>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有</p>
+    <p>诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+
+  <!-- 动态内容 JS -->
+  <script>
+    // 虚构新闻详情数据
+    const newsData = {
+      '1': {
+        title: '公司参加2025青岛国际木工机械展',
+        date: '2025-11-15',
+        content: `2025年11月12日至15日，第22届青岛国际木工机械及家具制造展在青岛国际会展中心隆重举行。青岛金方圆机械有限公司携最新一代智能单板刨切机JFY-2500亮相展会，吸引了来自全国及东南亚、中东等地区的数百家客户驻足参观。
+
+        此次展出的JFY-2500型号设备采用全伺服控制系统，支持0.2mm超薄单板高精度刨切，配备AI视觉定位与自适应压力调节技术，大幅提升了加工效率与成品率。展会期间，公司技术团队现场演示设备运行，并就客户个性化需求提供定制化解决方案。
+
+        据统计，展会四天内，公司共接待专业观众超800人次，达成意向订单23项，涉及刨切机、热压机及剪切设备，总金额逾1200万元。公司总经理表示：“我们将以此次展会为契机，进一步推动产品智能化升级，深耕国内外市场，为全球木业客户提供更可靠、高效的装备支持。”`
+      },
+      '2': {
+        title: '出口越南订单顺利交付',
+        date: '2025-10-22',
+        content: `2025年10月20日，青岛金方圆机械有限公司两台卧式刨切机（型号JFY-W1800）及一台全自动热压机（JFY-R7）完成最终调试，顺利装柜发往越南胡志明市客户工厂。
+
+        该订单来自越南知名家具制造商Hoang Anh Group，是其2025年度设备升级计划的重要组成部分。为确保设备适应当地电压与操作习惯，我公司技术团队提前赴越进行现场勘测，并定制了380V/50Hz电气系统及越南语操作界面。
+
+        此次交付是公司2025年出口的第8批设备，标志着金方圆机械在东南亚市场的品牌影响力持续提升。未来，公司计划在泰国、马来西亚设立服务网点，进一步完善海外售后体系，践行“用户至上”的服务承诺。`
+      },
+      '3': {
+        title: '荣获“山东省专精特新企业”称号',
+        date: '2025-09-30',
+        content: `近日，山东省工业和信息化厅正式公布2025年度“专精特新”中小企业名单，青岛金方圆机械有限公司凭借在木工机械领域的专业化、精细化、特色化与创新能力，成功入选。
+
+        “专精特新”是指具备专业化、精细化、特色化、新颖化特征的中小企业，是国家推动制造业高质量发展的重要抓手。评审专家指出，金方圆机械长期聚焦单板刨切与薄木加工设备细分领域，拥有12项实用新型专利，产品精度与稳定性达到行业领先水平。
+
+        公司自2010年成立以来，始终坚持“诚实信誉、质量第一、用户至上”的经营理念，产品覆盖全国20余省市，并出口至越南、泰国、印度、土耳其等国家。此次获评“专精特新”，既是肯定，也是激励。公司表示，将继续加大研发投入，推动木工装备向智能化、绿色化方向发展。`
+      }
+    };
+
+    // 获取 URL 参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id') || '1';
+    const news = newsData[id] || newsData['1'];
+
+    // 渲染内容
+    document.getElementById('news-title').textContent = news.title;
+    document.getElementById('news-date').textContent = news.date;
+    document.getElementById('news-content').innerHTML = news.content
+      .split('\n\n')
+      .map(para => `<p>${para.trim()}</p>`)
+      .join('');
+  </script>
+</body>
+</html>
