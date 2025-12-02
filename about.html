@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>公司简介 - 青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    .nav {
+      background: url('https://via.placeholder.com/100x30?text=texture') repeat-x;
+      background-color: #222;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #444;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 20px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .nav li:hover {
+      background: #333;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      display: block;
+    }
+    .dropdown {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background: #333;
+      min-width: 120px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 100;
+    }
+    .nav li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      padding: 8px 20px;
+      display: block;
+      color: #eee;
+      border-bottom: 1px solid #444;
+    }
+    .dropdown a:hover {
+      background: #444;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .about-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <div class="nav">
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="about.html">公司简介</a>
+        <div class="dropdown">
+          <a href="about.html">公司概况</a>
+          <a href="#">企业文化</a>
+        </div>
+      </li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="products.html">全部产品</a>
+          <a href="#">刨切机系列</a>
+          <a href="#">剪切机系列</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">视频中心</a>
+        <div class="dropdown">
+          <a href="#">设备演示</a>
+          <a href="#">客户案例</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">新闻动态</a>
+        <div class="dropdown">
+          <a href="#">公司新闻</a>
+          <a href="#">行业资讯</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">生产实力</a>
+        <div class="dropdown">
+          <a href="#">设备车间</a>
+          <a href="#">工艺流程</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">荣誉资质</a>
+        <div class="dropdown">
+          <a href="#">认证证书</a>
+          <a href="#">合作客户</a>
+        </div>
+      </li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </div>
+
+  <!-- 公司简介 -->
+  <div class="container">
+    <div class="section">
+      <h2>公司简介</h2>
+      <img class="about-img" src="https://www.jinfangyuan.cn/Uploads/about.jpg" alt="公司厂区" />
+      <p>青岛金方圆机械有限公司致力于单板刨切机，卧式刨切机，立式刨切机，半圆旋切机，科技木刨切机，纵向刨切机，薄木剪切机，双刀剪切机，磨刀机，薄木拼缝机，热压机 等木工机械研究开发，诚实守信，创新发展，不断为客户提供优良的产品和服务。</p>
+      <p>青岛金方圆机械有限公司地处青岛西海岸工业重地的青岛海西工业园，占地17980平方米，位于青黄高速王台出口处，这里地理位置优越，交通十分方便。</p>
+      <p>我公司是生产各种型号木业设备专业厂家，产品畅销全国20多个省市并出口东南亚多个国家。</p>
+      <p>我公司生产设备精良，技术检测工艺先进，质保体系完善，信守合同。“诚实信誉、质量第一、用户至上”，是我们的经营宗旨。良好的产品质量和完善周到的售前售后服务，多年来深受广大客户的欢迎和信赖，今后我们将一如继往的追求和努力开拓新的产品，欢迎新老用户友好合作和支持!</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有 | 诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+</body>
+</html>
