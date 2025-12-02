@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新闻动态 - 青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .nav {
+      background: #1a365d;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 24px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .nav a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav li:hover > a {
+      color: #fff;
+    }
+
+    /* 下拉菜单 */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      display: none;
+      z-index: 1001;
+    }
+    .nav li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #333 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .dropdown a:hover {
+      background: #f0f5ff;
+    }
+
+    /* 页面标题 */
+    .page-header {
+      text-align: center;
+      margin: 50px 0 30px;
+    }
+    .page-header h1 {
+      font-size: 28px;
+      color: #1a365d;
+      position: relative;
+      display: inline-block;
+    }
+    .page-header h1::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #3b82f6;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 新闻列表 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .news-item {
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s;
+    }
+    .news-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .news-item h3 {
+      font-size: 18px;
+      color: #1a365d;
+      margin-bottom: 8px;
+    }
+    .news-item .meta {
+      font-size: 13px;
+      color: #718096;
+      margin-bottom: 12px;
+    }
+    .news-item p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .nav { height: 50px; }
+      .logo { font-size: 16px; padding: 0 15px; }
+      .nav a { font-size: 14px; }
+      .news-item {
+        padding: 16px;
+      }
+      .news-item h3 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="logo">青岛金方圆机械有限公司</div>
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="products.html#p1">单板刨切机</a>
+          <a href="products.html#p2">卧式刨切机</a>
+          <a href="products.html#p3">薄木剪切机</a>
+          <a href="products.html#p4">热压机</a>
+        </div>
+      </li>
+      <li><a href="news.html">新闻动态</a></li>
+      <li><a href="honors.html">资质荣誉</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>新闻动态</h1>
+    </div>
+
+    <div class="news-list">
+      <div class="news-item">
+        <a href="news-detail.html?id=1" style="text-decoration: none; color: inherit;">
+          <h3>公司参加2025青岛国际木工机械展</h3>
+          <div class="meta">2025-11-15</div>
+          <p>青岛金方圆机械携最新一代智能单板刨切机亮相展会，吸引众多国内外客户驻足咨询，现场达成多项合作意向。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=2" style="text-decoration: none; color: inherit;">
+          <h3>出口越南订单顺利交付</h3>
+          <div class="meta">2025-10-22</div>
+          <p>两台卧式刨切机与一台热压机完成装柜，发往越南胡志明市客户工厂，标志着公司在东南亚市场持续拓展。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=3" style="text-decoration: none; color: inherit;">
+          <h3>荣获“山东省专精特新企业”称号</h3>
+          <div class="meta">2025-09-30</div>
+          <p>经山东省工信厅认定，公司凭借在木工机械领域的技术创新与专业能力，成功入选2025年度“专精特新”中小企业名单。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=4" style="text-decoration: none; color: inherit;">
+          <h3>新车间投产，产能提升50%</h3>
+          <div class="meta">2025-08-18</div>
+          <p>公司新增2000㎡智能化生产车间正式启用，装配多台高精度加工中心，整体产能提升50%，交付周期缩短20%。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=5" style="text-decoration: none; color: inherit;">
+          <h3>与南京林业大学达成产学研合作</h3>
+          <div class="meta">2025-07-12</div>
+          <p>双方将围绕“智能木工装备”开展联合研发，推动设备自动化与数字化升级，提升产品核心竞争力。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=6" style="text-decoration: none; color: inherit;">
+          <h3>热压机新型控制系统上线</h3>
+          <div class="meta">2025-06-25</div>
+          <p>新一代热压机采用PLC+触摸屏双控系统，支持工艺参数云端存储与远程调用，操作更高效，成品一致性显著提升。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=7" style="text-decoration: none; color: inherit;">
+          <h3>售后服务团队完成全国巡检</h3>
+          <div class="meta">2025-05-30</div>
+          <p>技术团队历时两个月，走访全国12个省市客户，完成设备保养与操作培训，客户满意度达98.5%。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=8" style="text-decoration: none; color: inherit;">
+          <h3>薄木剪切机获国家实用新型专利</h3>
+          <div class="meta">2025-04-18</div>
+          <p>公司自主研发的“高精度伺服薄木剪切装置”获国家知识产权局授权，专利号：ZL2025 2 0123456.7。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=9" style="text-decoration: none; color: inherit;">
+          <h3>参加广州家具制造技术博览会</h3>
+          <div class="meta">2025-03-22</div>
+          <p>展示刨切-剪切-热压一体化解决方案，吸引众多定制家具厂商关注，现场签约5家新客户。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=10" style="text-decoration: none; color: inherit;">
+          <h3>设备通过欧盟CE安全认证</h3>
+          <div class="meta">2025-02-28</div>
+          <p>全系列刨切机与剪切机完成CE认证，为进军欧洲市场奠定基础，满足国际安全与环保标准。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=11" style="text-decoration: none; color: inherit;">
+          <h3>官网全新改版上线</h3>
+          <div class="meta">2025-01-15</div>
+          <p>新版官网优化产品展示与用户体验，支持多端访问，客户可在线提交需求，获取技术方案。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=12" style="text-decoration: none; color: inherit;">
+          <h3>年度总结大会圆满召开</h3>
+          <div class="meta">2024-12-20</div>
+          <p>公司回顾2024年业绩，表彰先进员工，并发布2025年“智能化、国际化”双轮驱动战略。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=13" style="text-decoration: none; color: inherit;">
+          <h3>磨刀机新型冷却系统投入使用</h3>
+          <div class="meta">2024-11-10</div>
+          <p>新型循环冷却系统有效降低刀具磨损，延长使用寿命30%，获客户一致好评。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=14" style="text-decoration: none; color: inherit;">
+          <h3>参加第十五届中国林产品交易会</h3>
+          <div class="meta">2024-10-08</div>
+          <p>在山东菏泽展会现场，公司展台人流如织，现场演示设备高效运行，意向订单创历届新高。</p>
+        </a>
+      </div>
+      <div class="news-item">
+        <a href="news-detail.html?id=15" style="text-decoration: none; color: inherit;">
+          <h3>成立海外技术服务部</h3>
+          <div class="meta">2024-09-05</div>
+          <p>为更好服务东南亚客户，公司设立海外技术服务部，提供本地化安装、培训与售后支持。</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有</p>
+    <p>诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+</body>
+</html>
