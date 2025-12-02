@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>产品详情 - 青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .nav {
+      background: #1a365d;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 24px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .nav a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav li:hover > a {
+      color: #fff;
+    }
+
+    /* 下拉菜单 */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      display: none;
+      z-index: 1001;
+    }
+    .nav li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #333 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .dropdown a:hover {
+      background: #f0f5ff;
+    }
+
+    /* 页面标题 */
+    .page-header {
+      text-align: center;
+      margin: 50px 0 30px;
+    }
+    .page-header h1 {
+      font-size: 28px;
+      color: #1a365d;
+      position: relative;
+      display: inline-block;
+    }
+    .page-header h1::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #3b82f6;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 产品详情布局 */
+    .product-detail {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .product-image {
+      flex: 0 0 400px;
+      height: 400px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 16px;
+      text-align: center;
+      padding: 20px;
+    }
+    .product-info {
+      flex: 1;
+    }
+    .product-info h2 {
+      font-size: 24px;
+      color: #1a365d;
+      margin-bottom: 20px;
+    }
+    .product-info p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* 参数表 */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    .spec-table th,
+    .spec-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .spec-table th {
+      background: #f8fafc;
+      font-weight: bold;
+      color: #2d3748;
+      width: 180px;
+    }
+
+    /* 优势列表 */
+    .advantages ul {
+      padding-left: 20px;
+    }
+    .advantages li {
+      margin-bottom: 8px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* 返回按钮 */
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 20px;
+      background: #1a365d;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .back-link:hover {
+      background: #2c5282;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .nav { height: 50px; }
+      .logo { font-size: 16px; padding: 0 15px; }
+      .nav a { font-size: 14px; }
+      .product-detail {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .product-image {
+        flex: 0 0 auto;
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="logo">青岛金方圆机械有限公司</div>
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="products.html#p1">单板刨切机</a>
+          <a href="products.html#p2">卧式刨切机</a>
+          <a href="products.html#p3">薄木剪切机</a>
+          <a href="products.html#p4">热压机</a>
+        </div>
+      </li>
+      <li><a href="news.html">新闻动态</a></li>
+      <li><a href="honors.html">资质荣誉</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- 产品详情内容（通过 JS 动态填充） -->
+  <div class="container">
+    <div class="page-header">
+      <h1 id="page-title">产品详情</h1>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-image" id="product-image">
+        <!-- 占位图 -->
+      </div>
+      <div class="product-info">
+        <h2 id="product-name">产品名称</h2>
+        <div id="product-desc"></div>
+
+        <h3 style="margin: 30px 0 15px; color: #1a365d;">技术参数</h3>
+        <table class="spec-table" id="spec-table">
+          <!-- 动态生成 -->
+        </table>
+
+        <h3 style="margin: 30px 0 15px; color: #1a365d;">产品优势</h3>
+        <div class="advantages" id="advantages">
+          <!-- 动态生成 -->
+        </div>
+
+        <a href="products.html" class="back-link">← 返回产品中心</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有</p>
+    <p>诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+
+  <!-- 动态内容 JS -->
+  <script>
+    // 产品数据（可后续扩展）
+    const products = {
+      '1': {
+        name: '单板刨切机',
+        desc: '本系列单板刨切机专为 hardwood 单板高精度刨切设计，采用德国进口轴承和精密刀轴动平衡技术，确保切面光滑无毛刺。支持厚度 0.2–3.0mm 无级调节，配备 PLC 控制系统，一键启动，故障自检，操作简便。广泛应用于家具、装饰板材行业，是提升生产效率的理想选择。',
+        imageText: '单板刨切机\n（可替换为产品图）',
+        specs: [
+          ['型号', 'JFY-2000 / JFY-2500'],
+          ['最大刨切宽度', '2000 / 2500 mm'],
+          ['最小刨切厚度', '0.2 mm'],
+          ['电机功率', '7.5 / 11 kW'],
+          ['整机重量', '2800 / 3500 kg'],
+          ['外形尺寸', '3200×1800×1600 mm']
+        ],
+        advantages: [
+          '采用德国进口轴承，运行平稳，寿命长',
+          '刀轴经精密动平衡处理，切面光滑无毛刺',
+          'PLC 全自动控制系统，支持多工艺参数存储',
+          '配备安全防护罩与紧急停止装置，符合 CE 标准',
+          '支持定制化改造，满足特殊工艺需求'
+        ]
+      },
+      '2': {
+        name: '卧式刨切机',
+        desc: '卧式刨切机结构稳定，适合大批量连续作业。配备自动送料系统，有效降低人工成本，提高生产一致性。设备采用高强度钢架焊接，运行平稳，噪音低。适用于橡木、榉木、胡桃木等多种硬木刨切，是中大型木业加工厂的首选设备。',
+        imageText: '卧式刨切机\n（可替换为产品图）',
+        specs: [
+          ['型号', 'JFY-W1800'],
+          ['加工宽度', '1800 mm'],
+          ['加工厚度', '2–80 mm'],
+          ['主轴转速', '3000 rpm'],
+          ['送料速度', '0–30 m/min'],
+          ['整机重量', '4200 kg']
+        ],
+        advantages: [
+          '全封闭齿轮传动，维护成本低',
+          '自动送料+自动出料，实现无人化操作',
+          '液压压料系统，适应不同厚度板材',
+          '模块化设计，便于运输与安装',
+          '节能高效，比传统机型省电 15%'
+        ]
+      },
+      '3': {
+        name: '薄木剪切机',
+        desc: '精准裁剪科技木皮、薄木贴面等材料，支持多尺寸设定，切口平整无毛刺。设备采用伺服电机驱动，定位精确，切割速度快，效率高。配备安全防护装置，符合 CE 标准，保障操作人员安全。是高端家具厂、地板厂不可或缺的核心设备。',
+        imageText: '薄木剪切机\n（可替换为产品图）',
+        specs: [
+          ['最大裁切宽度', '1300 mm'],
+          ['最小裁切长度', '50 mm'],
+          ['裁切精度', '±0.1 mm'],
+          ['裁切速度', '20–60 次/分钟'],
+          ['电机功率', '3 kW'],
+          ['电源', '380V/50Hz']
+        ],
+        advantages: [
+          '伺服电机+高精度导轨，定位误差小于 0.05mm',
+          '触摸屏人机界面，操作直观',
+          '支持扫码导入裁切方案，提升换产效率',
+          '双刀同步剪切，效率提升一倍',
+          '低噪音设计，车间环境更友好'
+        ]
+      },
+      '4': {
+        name: '热压机',
+        desc: '用于胶合板、贴面、科技木等材料的热压成型。温度、压力、时间三参数精准可控，支持定制化工艺曲线。设备采用双层液压系统，压力均匀，成品率高。加热方式可选电加热或导热油加热，满足不同产能需求。是打造高品质人造板的关键设备。',
+        imageText: '热压机\n（可替换为产品图）',
+        specs: [
+          ['工作层数', '3 / 5 / 7 层'],
+          ['热压板尺寸', '1300×2600 mm'],
+          ['最大压力', '8–12 MPa'],
+          ['最高温度', '220°C'],
+          ['加热功率', '90 / 160 kW'],
+          ['控制方式', 'PLC + 触摸屏']
+        ],
+        advantages: [
+          '多层同步加压，板面平整无鼓泡',
+          'PID 温控系统，温度波动 ≤±2°C',
+          '油压系统带保压功能，节能 20%',
+          '支持远程监控与数据导出',
+          '可选配自动卸板机械手，实现全自动化'
+        ]
+      }
+    };
+
+    // 获取 URL 参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const pid = urlParams.get('pid') || '1';
+
+    // 渲染内容
+    const product = products[pid] || products['1'];
+
+    document.getElementById('page-title').textContent = product.name;
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-desc').innerHTML = `<p>${product.desc}</p>`;
+
+    // 图片占位
+    document.getElementById('product-image').textContent = product.imageText;
+
+    // 技术参数
+    let specHtml = '';
+    product.specs.forEach(([key, val]) => {
+      specHtml += `<tr><th>${key}</th><td>${val}</td></tr>`;
+    });
+    document.getElementById('spec-table').innerHTML = specHtml;
+
+    // 产品优势
+    let advHtml = '<ul>';
+    product.advantages.forEach(item => {
+      advHtml += `<li>${item}</li>`;
+    });
+    advHtml += '</ul>';
+    document.getElementById('advantages').innerHTML = advHtml;
+  </script>
+</body>
+</html>
