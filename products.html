@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>产品中心 - 青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .nav {
+      background: #1a365d;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 24px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .nav a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav li:hover > a {
+      color: #fff;
+    }
+
+    /* 下拉菜单 */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      display: none;
+      z-index: 1001;
+    }
+    .nav li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #333 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .dropdown a:hover {
+      background: #f0f5ff;
+    }
+
+    /* 页面标题 */
+    .page-header {
+      text-align: center;
+      margin: 50px 0 30px;
+    }
+    .page-header h1 {
+      font-size: 28px;
+      color: #1a365d;
+      position: relative;
+      display: inline-block;
+    }
+    .page-header h1::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #3b82f6;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 产品列表 */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .product-card .img-placeholder {
+      width: 100%;
+      height: 180px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px;
+    }
+    .product-card .content {
+      padding: 16px;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #1a365d;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .nav { height: 50px; }
+      .logo { font-size: 16px; padding: 0 15px; }
+      .nav a { font-size: 14px; }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="logo">青岛金方圆机械有限公司</div>
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="#p1">单板刨切机</a>
+          <a href="#p2">卧式刨切机</a>
+          <a href="#p3">薄木剪切机</a>
+          <a href="#p4">热压机</a>
+        </div>
+      </li>
+      <li><a href="news.html">新闻动态</a></li>
+      <li><a href="honors.html">资质荣誉</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- 页面标题 -->
+  <div class="container">
+    <div class="page-header">
+      <h1>产品中心</h1>
+    </div>
+
+    <!-- 产品列表 -->
+    <div class="products-grid">
+      <!-- 产品 1 -->
+      <div class="product-card">
+        <a href="product-detail.html?pid=1">
+          <div class="img-placeholder">单板刨切机<br>（可替换为产品图）</div>
+        </a>
+        <div class="content">
+          <h3>单板刨切机</h3>
+          <p>本系列单板刨切机专为 hardwood 单板高精度刨切设计，采用德国进口轴承和精密刀轴动平衡技术，确保切面光滑无毛刺。支持厚度 0.2–3.0mm 无级调节，配备 PLC 控制系统，一键启动，故障自检，操作简便。广泛应用于家具、装饰板材行业，是提升生产效率的理想选择。</p>
+        </div>
+      </div>
+
+      <!-- 产品 2 -->
+      <div class="product-card">
+        <a href="product-detail.html?pid=2">
+          <div class="img-placeholder">卧式刨切机<br>（可替换为产品图）</div>
+        </a>
+        <div class="content">
+          <h3>卧式刨切机</h3>
+          <p>卧式刨切机结构稳定，适合大批量连续作业。配备自动送料系统，有效降低人工成本，提高生产一致性。设备采用高强度钢架焊接，运行平稳，噪音低。适用于橡木、榉木、胡桃木等多种硬木刨切，是中大型木业加工厂的首选设备。</p>
+        </div>
+      </div>
+
+      <!-- 产品 3 -->
+      <div class="product-card">
+        <a href="product-detail.html?pid=3">
+          <div class="img-placeholder">薄木剪切机<br>（可替换为产品图）</div>
+        </a>
+        <div class="content">
+          <h3>薄木剪切机</h3>
+          <p>精准裁剪科技木皮、薄木贴面等材料，支持多尺寸设定，切口平整无毛刺。设备采用伺服电机驱动，定位精确，切割速度快，效率高。配备安全防护装置，符合 CE 标准，保障操作人员安全。是高端家具厂、地板厂不可或缺的核心设备。</p>
+        </div>
+      </div>
+
+      <!-- 产品 4 -->
+      <div class="product-card">
+        <a href="product-detail.html?pid=4">
+          <div class="img-placeholder">热压机<br>（可替换为产品图）</div>
+        </a>
+        <div class="content">
+          <h3>热压机</h3>
+          <p>用于胶合板、贴面、科技木等材料的热压成型。温度、压力、时间三参数精准可控，支持定制化工艺曲线。设备采用双层液压系统，压力均匀，成品率高。加热方式可选电加热或导热油加热，满足不同产能需求。是打造高品质人造板的关键设备。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有</p>
+    <p>诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+</body>
+</html>
