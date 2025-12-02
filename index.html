@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>青岛金方圆机械有限公司</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 导航栏 */
+    .nav {
+      background: #1a365d;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 0 20px;
+      white-space: nowrap;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+    .nav li {
+      position: relative;
+      padding: 0 24px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .nav a {
+      color: #e6f0ff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav li:hover > a {
+      color: #fff;
+    }
+
+    /* 下拉菜单 */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      display: none;
+      z-index: 1001;
+    }
+    .nav li:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      color: #333 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .dropdown a:hover {
+      background: #f0f5ff;
+    }
+
+    /* 轮播图 */
+    .carousel {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin: 20px 0;
+    }
+    .carousel-inner {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+    .carousel-item > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+    .carousel-item:nth-child(1) > div { background: #4a5568; }
+    .carousel-item:nth-child(2) > div { background: #2d3748; }
+    .carousel-item:nth-child(3) > div { background: #1a202c; }
+    .carousel-item:nth-child(4) > div { background: #2c5282; }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .carousel-control {
+      background: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .carousel-control:hover {
+      background: rgba(0,0,0,0.5);
+    }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .indicator.active {
+      background: white;
+    }
+
+    /* 首页区块 */
+    .section {
+      margin: 50px 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .section-header h2 {
+      font-size: 26px;
+      color: #1a365d;
+      position: relative;
+      display: inline-block;
+    }
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: #3b82f6;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 公司简介 */
+    .about-text {
+      text-align: justify;
+      padding: 0 10px;
+      font-size: 15px;
+      color: #555;
+    }
+    .about-text p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    /* 产品精选 */
+    .featured-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .product-card .img-placeholder {
+      width: 100%;
+      height: 160px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 14px;
+      text-align: center;
+      padding: 10px;
+    }
+    .product-card .content {
+      padding: 16px;
+    }
+    .product-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #1a365d;
+    }
+    .product-card p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* 新闻列表 */
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .news-item {
+      padding: 16px;
+      border-left: 4px solid #3b82f6;
+      background: #f9fbff;
+      border-radius: 4px;
+    }
+    .news-item h4 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #222;
+    }
+    .news-item .date {
+      font-size: 12px;
+      color: #888;
+    }
+    .news-item p {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .carousel { height: 250px; }
+      .carousel-item > div { font-size: 18px; }
+      .nav { height: 50px; }
+      .logo { font-size: 16px; padding: 0 15px; }
+      .nav a { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <div class="logo">青岛金方圆机械有限公司</div>
+    <ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li>
+        <a href="products.html">产品中心</a>
+        <div class="dropdown">
+          <a href="products.html#p1">单板刨切机</a>
+          <a href="products.html#p2">卧式刨切机</a>
+          <a href="products.html#p3">薄木剪切机</a>
+          <a href="products.html#p4">热压机</a>
+        </div>
+      </li>
+      <li><a href="news.html">新闻动态</a></li>
+      <li><a href="honors.html">资质荣誉</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <!-- 轮播图 -->
+  <div class="carousel" id="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item"><div>厂区全景<br>（可替换为实景图）</div></div>
+      <div class="carousel-item"><div>生产车间<br>（设备实拍图）</div></div>
+      <div class="carousel-item"><div>产品展示<br>（刨切机特写）</div></div>
+      <div class="carousel-item"><div>出口装运<br>（发货现场）</div></div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-control" id="prev">‹</button>
+      <button class="carousel-control" id="next">›</button>
+    </div>
+    <div class="carousel-indicators" id="indicators"></div>
+  </div>
+
+  <div class="container">
+    <!-- 公司简介 -->
+    <div class="section">
+      <div class="section-header">
+        <h2>公司简介</h2>
+      </div>
+      <div class="about-text">
+        <p>青岛金方圆机械有限公司致力于单板刨切机，卧式刨切机，立式刨切机，半圆旋切机，科技木刨切机，纵向刨切机，薄木剪切机，双刀剪切机，磨刀机，薄木拼缝机，热压机 等木工机械研究开发，诚实守信，创新发展，不断为客户提供优良的产品和服务。</p>
+        <p>青岛金方圆机械有限公司地处青岛西海岸工业重地的青岛海西工业园，占地17980平方米，位于青黄高速王台出口处，这里地理位置优越，交通十分方便。</p>
+        <p>我公司是生产各种型号木业设备专业厂家，产品畅销全国20多个省市并出口东南亚多个国家。</p>
+        <p>我公司生产设备精良，技术检测工艺先进，质保体系完善，信守合同。“诚实信誉、质量第一、用户至上”，是我们的经营宗旨。良好的产品质量和完善周到的售前售后服务，多年来深受广大客户的欢迎和信赖，今后我们将一如继往的追求和努力开拓新的产品，欢迎新老用户友好合作和支持!</p>
+      </div>
+    </div>
+
+    <!-- 精选产品 -->
+    <div class="section">
+      <div class="section-header">
+        <h2>产品中心</h2>
+      </div>
+      <div class="featured-products">
+        <div class="product-card">
+          <a href="product-detail.html?pid=1">
+            <div class="img-placeholder">单板刨切机<br>（可替换为产品图）</div>
+          </a>
+          <div class="content">
+            <h3>单板刨切机</h3>
+            <p>适用于 hardwood 单板高精度刨切，支持 0.2–3.0mm 厚度调节。</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="product-detail.html?pid=2">
+            <div class="img-placeholder">卧式刨切机<br>（可替换为产品图）</div>
+          </a>
+          <div class="content">
+            <h3>卧式刨切机</h3>
+            <p>结构稳定，适合大批量连续作业，配备自动送料系统。</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="product-detail.html?pid=3">
+            <div class="img-placeholder">薄木剪切机<br>（可替换为产品图）</div>
+          </a>
+          <div class="content">
+            <h3>薄木剪切机</h3>
+            <p>精准裁剪科技木皮，切口平整无毛刺，效率高。</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <a href="product-detail.html?pid=4">
+            <div class="img-placeholder">热压机<br>（可替换为产品图）</div>
+          </a>
+          <div class="content">
+            <h3>热压机</h3>
+            <p>用于胶合板、贴面热压成型，温度压力精准可控。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最新新闻 -->
+    <div class="section">
+      <div class="section-header">
+        <h2>新闻动态</h2>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <a href="news-detail.html?id=1" style="text-decoration: none; color: inherit;">
+            <h4>公司参加2025青岛国际木工机械展</h4>
+            <div class="date">2025-11-15</div>
+            <p>展示最新一代智能刨切机，获客户高度关注。</p>
+          </a>
+        </div>
+        <div class="news-item">
+          <a href="news-detail.html?id=2" style="text-decoration: none; color: inherit;">
+            <h4>出口越南订单顺利交付</h4>
+            <div class="date">2025-10-22</div>
+            <p>两台卧式刨切机、一台热压机发往胡志明市。</p>
+          </a>
+        </div>
+        <div class="news-item">
+          <a href="news-detail.html?id=3" style="text-decoration: none; color: inherit;">
+            <h4>荣获“山东省专精特新企业”称号</h4>
+            <div class="date">2025-09-30</div>
+            <p>公司技术创新能力获政府认可。</p>
+          </a>
+        </div>
+        <div class="news-item">
+          <a href="news-detail.html?id=4" style="text-decoration: none; color: inherit;">
+            <h4>新车间投产，产能提升50%</h4>
+            <div class="date">2025-08-18</div>
+            <p>新增2000㎡智能化生产车间正式启用。</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 青岛金方圆机械有限公司 版权所有</p>
+    <p>诚实信誉 · 质量第一 · 用户至上</p>
+  </footer>
+
+  <!-- 轮播图 JS -->
+  <script>
+    const carousel = document.getElementById('carousel');
+    const inner = carousel.querySelector('.carousel-inner');
+    const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const indicatorsContainer = document.getElementById('indicators');
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    items.forEach((_, index) => {
+      const indicator = document.createElement('div');
+      indicator.classList.add('indicator');
+      if (index === 0) indicator.classList.add('active');
+      indicator.addEventListener('click', () => goTo(index));
+      indicatorsContainer.appendChild(indicator);
+    });
+
+    const indicators = Array.from(indicatorsContainer.querySelectorAll('.indicator'));
+
+    function updateIndicators() {
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goTo(index) {
+      currentIndex = index;
+      inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateIndicators();
+    }
+
+    function next() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      goTo(currentIndex);
+    }
+
+    function prev() {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      goTo(currentIndex);
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    let intervalId = setInterval(next, 5000);
+    carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+    carousel.addEventListener('mouseleave', () => {
+      intervalId = setInterval(next, 5000);
+    });
+  </script>
+</body>
+</html>
